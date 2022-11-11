@@ -1,4 +1,5 @@
-# Deploy Prometheus & Grafana on Kubernetes Cluster
+# README
+Deploy Prometheus & Grafana on Kubernetes Cluster
 
 ## Prometheus
 1. namespace
