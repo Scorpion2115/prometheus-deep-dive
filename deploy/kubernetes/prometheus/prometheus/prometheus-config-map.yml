@@ -6,6 +6,12 @@ metadata:
     name: prometheus-server-conf
   namespace: monitoring
 data:
+  web.yml: |-
+    # run this command to generate a bcrypt hash of the password
+    # $htpasswd -nbBC 10 admin admin
+    basic_auth_users:
+      admin: $2y$10$MQpc4XLed98nalJTarU8denyHqm.h0qX0biXzBMo6T8vKiAPSumZi
+
   prometheus.yml: |-
     global:
       scrape_interval: 5s
@@ -14,8 +20,8 @@ data:
     scrape_configs:
       - job_name: 'node-exporter-acg-vms'
         static_configs:
-         - targets: ['2a5202caf11c.mylabserver.com:9100', '2a5202caf12c.mylabserver.com:9100','2a5202caf13c.mylabserver.com:9100']
-    
+        # - targets: ['2a5202caf11c.mylabserver.com:9100', '2a5202caf12c.mylabserver.com:9100','2a5202caf13c.mylabserver.com:9100']
+        - targets: ['2a5202caf11d.mylabserver.com:9100', '2a5202caf12d.mylabserver.com:9100','2a5202caf13d.mylabserver.com:9100']
       - job_name: 'kubernetes-apiservers'
         kubernetes_sd_configs:
         - role: endpoints

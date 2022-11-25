@@ -9,14 +9,19 @@ spec:
   ports:
     - port: 3000
       targetPort: 3000
-      nodePort: 8001
+      nodePort: 30092
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: comicbox
+  labels: 
+   app: comicbox
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: comicbox
   template:
     metadata:
       labels:
@@ -28,6 +33,6 @@ spec:
     spec:
       containers:
         - name: comicbox
-          image: rivethead42/comicbox
+          image: evan21/swagger-test
           ports:
             - containerPort: 3000

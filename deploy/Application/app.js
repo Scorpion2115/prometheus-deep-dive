@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// include the swagger-stats
 var swStats = require('swagger-stats');
 var index = require('./routes/index');
 
@@ -13,6 +14,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// include the middleware in the application
 app.use(swStats.getMiddleware());
 
 app.use(logger('dev'));

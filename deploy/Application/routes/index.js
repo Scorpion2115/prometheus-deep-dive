@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
 /* GET status */
 router.get('/status', function(req, res, nex) {
   status = {
-    "status": "I am healthy"
+    "status": "Greeting from Ev"
   }
   res.json(status);
 });

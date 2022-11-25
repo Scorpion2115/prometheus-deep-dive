@@ -23,6 +23,7 @@ spec:
             - "--config.file=/etc/prometheus/prometheus.yml"
             - "--storage.tsdb.path=/prometheus/"
             - "--web.enable-lifecycle"
+            - "--web.config.file=/etc/prometheus/web.yml"
           ports:
             - containerPort: 9090
           volumeMounts:
@@ -43,6 +44,8 @@ spec:
           configMap:
             defaultMode: 420
             name: prometheus-server-conf
-        
         - name: prometheus-storage-volume
           emptyDir: {}
+
+
+
